@@ -1,0 +1,182 @@
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>Nos services </h2>
+                </div>
+            </div>
+            <!-- shop -->
+            <div class="services clearfix">
+                <!-- end .col-md-12 col-sm-12 col-xs-12 -->
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+
+                    <article class="service">
+                        <div class="car">
+                            <div class="car-img">
+                            <h4><img src="./../../../assets/img/car.png" alt=""></h4>
+                            </div>
+                            <div class="car-body">
+                                <div>
+                                    <h3>Publier votre trajet</h3>
+                                </div> <br>
+                                <div>
+                                    <p>Partagez votre trajet aujourd'hui et dépensez d'argent. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- end .service -->
+                </div>
+                <!-- end .col-md-4 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <article class="service">
+                        <div class="friends">
+                            <div class="friends-img">
+                            <h4><img src="./../../../assets/img/friends.png" alt=""></h4>
+                            </div>
+                            <div class="friends-body">
+                                <div>
+                                    <h3>Chercher de nouveaux amis</h3>
+                                </div> <br>
+                                <div>
+                                    <p>Trouvez de nouveaux amis est plus facile que jamais, rien ne fait une meilleure amitié que de passer quelques heures à discuter avec des personnes intéressantes. </p>
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+                    <!-- end .service -->
+                </div>
+                <!-- end .col-md-4 -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <article class="service">
+                        <div class="localisation">
+                            <div class="localisation-img">
+                               <h4> <img src="./../../../assets/img/localisation2.png" alt=""></h4>
+                            </div>
+                            <div class="localisation-body">
+                                <div>
+                                    <h3>Visiter de nouveaux endroits</h3>
+                                </div><br>
+                                <div>
+                                    <p> Découvrir ce trés beau pays et visitez de nouveaux endroits. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- end .service -->
+                </div>
+                <!-- end .col-md-4 -->
+            </div>
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- section title -->
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h2>Les trajets disponibles </h2>
+                </div>
+            </div>
+            <!-- /section title -->
+            <!-- Products tab & slick -->
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6" *ngFor="let t of trajet">
+                        <div class="card my-2">
+                            <img [src]="t.profile"  height="370PX" alt="{{t.vdepart}}" class="card-img-top" (click)="selectTrajet(t.id)">
+                            <div class="card-header">
+                                <div class="card-title" >
+                                <h5>Ville de départ : {{t.vdepart| titlecase}}</h5>
+                                    <BR>
+                                    
+                                   <h5>
+                                        Ville d'arrivé : {{t.varrive| titlecase}}
+                                    </h5>
+                                    <BR>
+                                  
+                              <h5>
+                                      Tarif : {{t.tarif| titlecase}}
+                                    </h5>
+                                    <BR>
+                                    
+                                       <h5>
+                                         Nombres de places : {{t.nbrep}} places
+                                       </h5>
+                                    
+                                    <BR>
+                                   
+                                        <h5>
+                                         Heure de départ : {{t.heure| titlecase}}
+                                        </h5>
+                                      
+                                    <BR>
+                                    
+                                         <h5>
+                                           Date de départ: {{t.date| date : 'dd/MM/yyyy'}}
+                                         </h5>
+                                       
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+    <!-- NEWSLETTER -->
+    <div id="newsletter" class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- shop -->
+                <div class="col-md-4 col-xs-6">
+                    <div class="s">
+                        <img src="./../../../assets/img/trajet.jpg" width="160px" style="margin-left: 55PX;" alt=""> <br>
+                        <h5>
+                           <p style="margin-left: -90PX;"> {{nombren}} Trajets déposés </p> 
+                        </h5>
+                    </div>
+                </div>
+                <!-- /shop -->
+                <div class="col-md-4 col-xs-6">
+                    <div class="s">
+                        <img src="./../../../assets/img/friends.png" style="margin-left: 55PX;" width="160px" alt="">
+                        <h5>
+                            <p style="margin-left: -90PX;"> {{nombrena}} Membres </p>
+                        </h5>
+                    </div>
+                </div>
+
+                <div class="col-md-4 col-xs-6">
+                    <div class="s">
+                        <img src="./../../../assets/img/reserved.png" style="margin-left: 55PX;" width="160px" alt="">
+                        <h5>
+                        
+                              <p style="margin-left: -90PX;"> 0 Trajets reservés </p>
+                        </h5>
+
+                    </div>
+                </div>
+
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /NEWSLETTER -->

@@ -1,0 +1,76 @@
+
+<div class="container my-5">
+    <ng-container id="errorMsg" *ngIf="errorMessage">
+        <div class="alert alert-danger alert-dismissible text-center">
+            {{errorMessage}}
+        </div>
+    </ng-container>
+    <ng-container id="successMsg" *ngIf="successMessage">
+        <div class="alert alert-info alert-dismissible text-center">
+            {{successMessage}}
+        </div>
+    </ng-container>
+    <form (ngSubmit)="newpass(upForm)" [formGroup]="upForm" class="form-horizontal" novalidate>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h3>Réintialiser votre mot de passe</h3>
+                <hr>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-danger">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                        <input class="form-control" formControlName="pass" id="pass" name="pass" placeholder="Nouveau mot de passe" required type="password">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-repeat"></i></div>
+                        <input class="form-control" formControlName="cpassword" id="cpassword" name="cpassword" placeholder=" confirmer votre mot de passe" required type="password">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <ng-container *ngIf="!comparePassword && formControls.cpassword.touched">
+                        <span class="text-danger align-middle">
+                     <i class="fa fa-close"> Les mots de passe ne correspondent pas</i>
+                   </span>
+                    </ng-container>
+                    <div class="form-control-feedback">
+                        <ng-container *ngIf="comparePassword && formControls.cpassword.touched">
+                            <span class="text-success align-middle">
+                     <i class="fa fa-check"> Les mots de passe correspondent</i>
+                   </span>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button class="d-flex flex-column align-items-center justify-content-around" type="submit" class=" btn btn-primary">Réinitialiser le mot de passe </button>
+            </div>
+        </div>
+    </form>
+</div>

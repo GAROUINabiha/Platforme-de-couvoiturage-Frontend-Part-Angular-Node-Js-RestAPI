@@ -1,0 +1,243 @@
+
+<div class="container my-5">
+    <ng-container *ngIf="pubMessage?.length > 0">
+        <div class="alert alert-success alert-dismissible">
+            {{pubMessage}}
+        </div>
+    </ng-container>
+
+    <form (ngSubmit)="pub()" [formGroup]="pubForm" class="form-horizontal" novalidate>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h3>Publier votre trajet</h3>
+                <hr>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="email">Addresse E-mail</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                        <input class="form-control" formControlName="email" id="email" name="email" placeholder="test@exemple.com" required type="text">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <ng-container *ngIf="formControls.email.errors?.taken && formControls.email.touched">
+                        <span class="text-danger align-middle">
+          <i class="fa fa-close">Addresse email déja utilisé</i>
+        </span>
+                    </ng-container>
+
+                    <ng-container *ngIf="!formControls.email.errors && formControls.email.touched && !formControls.email.pending">
+                        <span class="text-success align-middle">
+          <i class="fa fa-check"> Addresse email valide</i>
+        </span>
+                    </ng-container>
+                    <ng-container *ngIf="formControls.email.errors?.required && formControls.email.touched">
+                        <span class="text-danger align-middle">
+          <i class="fa fa-check">Entrer votre addresse email</i>
+        </span>
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="vdepart">Ville de départ</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-home"></i></div>
+                        <select class="form-control" formControlName="vdepart" id="vdepart" name="vdepart" type="text">
+     <option value="" >Ville de départ</option>
+     <option *ngFor="let state of states" [value]="state.value"> {{state.viewValue}}</option>
+     
+                           </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="varrive">Ville d'arrivée</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-flag"></i></div>
+                        <select class="form-control" formControlName="varrive" id="varrive" name="varrive" type="text">
+                            <option value="">Ville d'arrivée</option>
+                            <option *ngFor="let state of states" [value]="state.value"> {{state.viewValue}}</option>
+
+                          </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="date">Date de départ</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-calendar"></i></div>
+                        <input class="form-control" formControlName="date" id="date" name="date" placeholder="Date of departure" required type="date">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="heure">Heure de départ</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-clock-o"></i></div>
+                        <input class="form-control" formControlName="heure" id="heure" name="heure" placeholder="Departure time" required type="time">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="nbrep">Nombre de places</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-users"></i></div>
+                        <input class="form-control" formControlName="nbrep" id="nbrep" name="nbrep" placeholder="Nombre de places" required type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="tarif">Tarif</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-money"></i></div>
+                        <input class="form-control" formControlName="tarif" id="tarif" name="tarif" placeholder="Tarif" required type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="pref">Vos préférences :</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-prepend" style="width: 2.6rem"></div>
+                        <div *ngFor="let data of Data; let i=index">
+                            <label>
+                            <input  type="checkbox" value="{{data.value}}" id="checkArray"
+                              name="checkArray"
+                               (change)="onCheckboxChange($event)" />
+                            {{data.name}}
+                          </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+         <!-- Put name validation error messages here -->
+       </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button class="btn btn-primary btn-sm btn-block" type="submit">
+          <i class="fa fa-plus"></i> Publier
+        </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,260 @@
+<div class="container my-5">
+    <ng-container *ngIf="registrationMessage?.length > 0">
+        <div class="alert alert-success alert-dismissible">
+            {{registrationMessage}}
+        </div>
+    </ng-container>
+
+    <form (ngSubmit)="registerUser()" [formGroup]="registrationForm" class="form-horizontal" novalidate>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <h3>Créer votre compte</h3>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="fname">Nom</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-pencil"></i></div>
+                        <input class="form-control" formControlName="fname" id="fname" name="fname" placeholder="Nom" required type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="lname">Prénom</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-pencil"></i></div>
+                        <input class="form-control" formControlName="lname" id="lname" name="lname" placeholder="Prénom" required type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="date">Date de naissance</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-birthday-cake" aria-hidden="true"></i></div>
+                        <input class="form-control" formControlName="date" id="date" name="date" placeholder="Date of birth" required type="date">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="profile">Photo de profile</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input class="form-control" formControlName="profile" id="profile" name="profile" placeholder="Saisissez l'url de votre photo" required type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="typev">Type de voiture</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-car"></i></div>
+                        <input class="form-control" formControlName="typev" id="typev" name="typev" placeholder="Voiture" required type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+        <!-- Put name validation error messages here -->
+      </span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="email">E-mail</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+                        <input class="form-control" formControlName="email" id="email" name="email" placeholder="test@exemple.com" required type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <ng-container *ngIf="formControls.email.errors?.taken && formControls.email.touched">
+                        <span class="text-danger align-middle">
+          <i class="fa fa-close"> Adresse email déja utilisée</i>
+        </span>
+                    </ng-container>
+
+                    <ng-container *ngIf="!formControls.email.errors && formControls.email.touched && !formControls.email.pending">
+                        <span class="text-success align-middle">
+          <i class="fa fa-check">Addresse email valide</i>
+        </span>
+                    </ng-container>
+                    <ng-container *ngIf="formControls.email.errors?.required && formControls.email.touched">
+                        <span class="text-danger align-middle">
+          <i class="fa fa-check">Entrer votre addresse email</i>
+        </span>
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="username">Nom_utilisateur</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+                        <input class="form-control" formControlName="username" id="username" name="username" placeholder="Nom_utilisateur" required type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <span class="text-danger align-middle">
+                            <!-- Put name validation error messages here -->
+                        </span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="password">Mot de passe</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group has-danger">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+                        <input class="form-control" formControlName="password" id="password" name="password" placeholder="Mot de passe" required type="password">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-3 field-label-responsive">
+                <label for="password">Confirmer votre mot de passe</label>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <div class="input-group-addon" style="width: 2.6rem">
+                            <i class="fa fa-repeat"></i>
+                        </div>
+                        <input class="form-control" formControlName="cpassword" id="cpassword" name="cpassword" placeholder="Confirmer votre mot de passe" required type="password">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-control-feedback">
+                    <ng-container *ngIf="!comparePassword && formControls.cpassword.touched">
+                        <span class="text-danger align-middle">
+                        <i class="fa fa-close">Les mots de passes ne correspondent pas</i>
+                      </span>
+                    </ng-container>
+                    <div class="form-control-feedback">
+                        <ng-container *ngIf="comparePassword && formControls.cpassword.touched">
+                            <span class="text-success align-middle">
+                          <i class="fa fa-check">Les mots de passes correspondent</i>
+                        </span>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <button class="btn btn-success" type="submit">
+          <i class="fa fa-user-plus"></i> Inscription </button>
+            </div>
+        </div>
+    </form>
+</div>

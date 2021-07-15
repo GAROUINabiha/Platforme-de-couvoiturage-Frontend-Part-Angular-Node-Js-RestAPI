@@ -1,0 +1,64 @@
+.navbar {
+    border-radius: 0px;
+}
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+    MARGIN-LEFT: -130PX;
+    FONT-WEIGHT: BOLD;
+    FONT-SIZE: xx-large;
+    FONT-FAMILY: cursive;
+    FONT-STYLE: italic;
+    
+}  
+.nav>li>a {
+    font-size: medium;
+    font-family: emoji;
+    font-style: revert;
+}
+.nav>li>a:hover {background-color: #080808;}
+
+.nav {MARGIN-LEFT: 300PX;}
+
+.nav[_ngcontent-myo-c1] > li[_ngcontent-myo-c1] > a[_ngcontent-myo-c1]:hover{MARGIN-RIGHT: -100PX;}
+h1{color: #fff;
+    text-align: center;
+    font-weight: bolder;
+    FONT-FAMILY: cursive;
+margin-top: 190PX;
+margin-bottom: -200PX;
+}
+    
+.btn{height: 60px;
+    width: 180PX;
+    border-radius: 0px;
+    MARGIN-LEFT: 8PX;
+    }
+
+
+input[type=date] {width: 140PX;
+    
+height: 60PX;}
+.input-select {width: 133PX;
+    }
+.col-lg-3 {    MARGIN-RIGHT: -80PX;
+    }
+
+    
+select{height: 60PX;}
+    .navbar {
+        position: relative; 
+         min-height: 0px; 
+        margin-bottom: 0px; 
+        border: 0px solid transparent; 
+    }
+    div.row{display: block;
+        margin-top: 160px;
+        MARGIN-LEFT: 130PX;}
+      .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+        color: #D10024;}
+        @media (min-width: 1200px){ .col-lg-12 {
+            width: 100%;
+            MARGIN-TOP: -35PX;
+        }}
+        .pull-right[_ngcontent-tjp-c1] {
+            MARGIN-LEFT: 0PX;
+        } 

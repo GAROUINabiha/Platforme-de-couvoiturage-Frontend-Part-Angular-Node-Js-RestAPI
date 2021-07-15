@@ -1,0 +1,111 @@
+
+<!-- SECTION -->
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- Product main img -->
+            <div class="col-md-5">
+                <div id="product-main-img">
+                    <div class="product-preview">
+                        <img style="float: left;" [src]="trajet.profile" alt="{{trajet.id}}">
+                    </div>
+                    <BR>
+                    <h5>
+                        <strong>     <p>Chauffeur : Mr/Mrs {{trajet.fname}} {{trajet.lname}}</p></strong>
+                    </h5>
+                </div>
+            </div>
+            <!-- /Product main img -->
+            <!-- Product details -->
+            <div class="col-md-5">
+                <div class="product-details">
+                    <h2 class="product-name"></h2>
+                    <div>
+                        <div class="product-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <a (click)="selectTrajet(trajet.email)"> Ajouter votre avis</a>
+                    </div>
+                    <div>
+                        <span class="product-available">
+                          <h4>Couvoiturage disponible</h4>
+                        </span>
+                    </div>
+                    <br>
+                    <p><strong>
+                         <h5>
+                          Prénom : {{trajet.lname}}</h5>
+                       </strong></p>
+                    <br>
+                    <p><strong>
+                          <h5>
+                            Nom : {{trajet.fname}}</h5>
+                        </strong></p>
+                    <br>
+                    <p><strong><h5>
+                     La ville de départ :   {{trajet.vdepart}}</h5>
+                    </strong></p>
+                    <br>
+                    <p><strong>
+                      <h5>
+                        La ville d'arrivé : {{trajet.varrive}}</h5>
+                    </strong></p>
+                    <br>
+                    <p><strong>
+                      <h5>
+                         Date de départ: {{trajet.date| date : 'dd/MM/yyyy'}}</h5>
+                    </strong></p>
+                    <br>
+                    <p><strong>
+                        <h5>
+                         Heure de départ : {{trajet.heure}}</h5>
+                      </strong></p>
+                    <br>
+                    <p><strong>
+                          <h5>
+                            Nombre des places disponibles : {{trajet.nbrep}} places</h5>
+                        </strong></p>
+                    <br>
+                    <p><strong>
+    <h5>
+     Tarif : {{trajet.tarif}}</h5>
+  </strong></p>
+                    <br>
+                    <p><strong>
+          <h5>
+            Type de véhicule : {{trajet.typev}}</h5>
+        </strong></p>
+                    <br>
+                    <p><strong>
+    <h5>
+     Préferences : {{trajet.checkArray}}</h5>
+  </strong></p>
+
+
+                    <div class="add-to-cart">
+                        <div class="qty-label">
+
+                            <div class="input-number">
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+            <!-- /Product details -->
+
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
+<!-- /SECTION -->
